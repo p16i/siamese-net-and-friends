@@ -5,7 +5,7 @@ def nll_loss(y, y_target):
     return F.nll_loss(y, y_target)
 
 
-def constastive_loss(x, x_sampling, take_pos, margin=1.0):
+def contastive_loss(x, x_sampling, take_pos, margin=1.0):
     distance = (x - x_sampling).norm(p=2, dim=1, keepdim=True)
 
     take_pos = take_pos.view(-1, 1)
@@ -20,3 +20,6 @@ def tripet_loss(anchor, pos, neg, margin=1.0):
     # todo: implement it maually
     return F.triplet_margin_loss(anchor, pos, neg, margin=margin).mean()
 
+
+def binary_cross_entropy(y, y_target):
+    return F.binary_cross_entropy(y, y_target)

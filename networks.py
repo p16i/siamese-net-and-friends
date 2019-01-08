@@ -1,3 +1,4 @@
+import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import losses
@@ -9,7 +10,9 @@ def net_provider(name, latent_dims=2, **kwargs):
     if name == 'embedding-classification':
         return Classifier(embedding_net, **kwargs)
     elif name == 'siamese-constrastive':
-        return SiameseConstrastive(embedding_net, **kwargs)
+        return SiameseContrastive(embedding_net, **kwargs)
+    elif name == 'siamese-binary-cross-entropy':
+        return SiameseBinaryCrossEntropy(embedding_net, **kwargs)
     elif name == 'tripet-loss-net':
         return TripetLossModel(embedding_net, **kwargs)
 
@@ -62,17 +65,47 @@ class Embedding(nn.Module):
         return self.encoder(x)
 
 
-class SiameseConstrastive(nn.Module):
+class SiameseContrastive(nn.Module):
     def __init__(self, embedding_net, margin=1.0):
-        super(SiameseConstrastive, self).__init__()
+        super(SiameseContrastive, self).__init__()
         self.embedding = embedding_net
-        self.loss = losses.constastive_loss
+        self.loss = losses.contastive_loss
         self.margin = margin
 
     def forward(self, x, x_sampling, is_the_sample_class):
         z = self.get_embedding(x)
         zs = self.get_embedding(x_sampling)
         return z, zs, is_the_sample_class
+
+    def get_embedding(self, x):
+        return self.embedding(x)
+
+
+class SiameseBinaryCrossEntropy(nn.Module):
+    def __init__(self, embedding_net, latent_dims=2, margin=1.0):
+        super(SiameseBinaryCrossEntropy, self).__init__()
+        self.embedding = embedding_net
+
+        self.output = nn.Sequential(
+            nn.Linear(latent_dims, 1),
+            nn.Sigmoid()
+        )
+
+        self.scaling_factor = nn.Parameter(torch.randn(2))
+
+        self.margin = margin
+
+        self.loss = losses.binary_cross_entropy
+
+    def forward(self, x, x_sampling, is_the_sample_class):
+        z = self.get_embedding(x)
+        zs = self.get_embedding(x_sampling)
+
+        # todo add scaling factor
+        l1 = (z-zs).abs().mul(self.scaling_factor)
+        p_same_class = self.output(l1)
+
+        return p_same_class.view(-1), is_the_sample_class.view(-1)
 
     def get_embedding(self, x):
         return self.embedding(x)

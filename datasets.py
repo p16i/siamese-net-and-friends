@@ -94,7 +94,7 @@ def get_dataset(loss, name, batch_size=32):
     trainloader = torch.utils.data.DataLoader(trainset, batch_size=batch_size, shuffle=True, num_workers=1)
     testloader = torch.utils.data.DataLoader(testset, batch_size=batch_size, shuffle=False, num_workers=1)
 
-    if loss is losses.constastive_loss:
+    if loss is losses.contastive_loss or loss is losses.binary_cross_entropy:
         siamese_train_loader = torch.utils.data.DataLoader(SiameseDataset(trainset), batch_size=batch_size,
                                                            shuffle=True,
                                                            num_workers=1)
