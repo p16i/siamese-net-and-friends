@@ -1,10 +1,7 @@
 import argparse
 
 import torch
-import torchvision
-import torchvision.transforms as transforms
 import torch.optim as optim
-from torch.utils.data import Dataset
 
 from tqdm import tqdm
 import numpy as np
@@ -14,7 +11,7 @@ import networks
 import plots
 import utils
 
-# Parsing command line arugments
+# Parse command line arguments
 parser = argparse.ArgumentParser(description='Train network!')
 parser.add_argument('net', metavar='network', type=str)
 parser.add_argument('dataset', metavar='dataset', type=str)
