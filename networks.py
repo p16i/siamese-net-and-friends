@@ -66,7 +66,7 @@ class SiameseConstrastive(nn.Module):
     def __init__(self, embedding_net, margin=1.0):
         super(SiameseConstrastive, self).__init__()
         self.embedding = embedding_net
-        self.loss = lambda *x: losses.constastive_loss(*x, margin=self.margin)
+        self.loss = losses.constastive_loss
         self.margin = margin
 
     def forward(self, x, x_sampling, is_the_sample_class):
