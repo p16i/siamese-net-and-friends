@@ -19,7 +19,7 @@
 | EmbeddingNet <br> (CrossEntropyLoss) | ![emb_mnist] | ![emb_fmnist] |
 | SiameseNet   <br> (ContrastiveLoss)  | ![sc_mnist]     | ![sc_fmnist] |
 | SiameseNet   <br> (BinaryCrossEntropyLoss)   | ![img_placeholder]      | TBD |
-| SiameseNet   <br> (TripetLoss)   | ![tp_mnist]      | ![tf_fmnist] |
+| SiameseNet   <br> (TripetLoss)   | ![tp_mnist]      | ![tp_fmnist] |
 
 
 ## Acknowledgements
