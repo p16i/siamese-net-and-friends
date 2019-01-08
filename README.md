@@ -9,13 +9,13 @@
 
 ## Results
 
-| Network      | Loss  | MNIST           | FashionMNIST  |
-| -------------|------- |:-------------:| :-----:|
-| EmbeddingNet | CrossEntropyLoss   | ![img_placeholder] | TBD |
-| SiameseNet   | ContrastiveLoss  | ![img_placeholder]     | TBD |
-| SiameseNet   | BinaryCrossEntropyLoss   | ![img_placeholder]      | TBD |
-| SiameseNet   | TripetLoss   | ![img_placeholder]      | TBD |
+| Network      | MNIST           | FashionMNIST  |
+|:-------------:|:-------------:| :-----:|
+| EmbeddingNet <br> (CrossEntropyLoss) | ![img_placeholder] | TBD |
+| SiameseNet   <br> (ContrastiveLoss)  | ![img_placeholder]     | TBD |
+| SiameseNet   <br> (BinaryCrossEntropyLoss)   | ![img_placeholder]      | TBD |
+| SiameseNet   <br> (TripetLoss)   | ![img_placeholder]      | TBD |
 
 
 
-[img_placeholder]: https://i.imgur.com/MWTFsaq.png
+[img_placeholder]: https://via.placeholder.com/500x500
