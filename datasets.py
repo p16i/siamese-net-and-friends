@@ -111,7 +111,6 @@ def get_dataset(loss, name, batch_size=32):
                                                      num_workers=1)
         return tp_train_loader, tp_test_loader, trainloader, testloader
     elif loss is F.nll_loss:
-        print('mnist loss')
         return trainloader, testloader, trainloader, testloader
 
     raise SystemError('no %s dataset available')
