@@ -16,8 +16,8 @@
 
 | Network      | MNIST           | FashionMNIST  |
 |:-------------:|:-------------:| :-----:|
-| EmbeddingNet <br> (CrossEntropyLoss) | ![img_placeholder] | ![img_placeholder] |
-| SiameseNet   <br> (ContrastiveLoss)  | ![img_placeholder]     | TBD |
+| EmbeddingNet <br> (CrossEntropyLoss) | ![emb_mnist] | ![emb_fmnist] |
+| SiameseNet   <br> (ContrastiveLoss)  | ![sc_mnist]     | TBD |
 | SiameseNet   <br> (BinaryCrossEntropyLoss)   | ![img_placeholder]      | TBD |
 | SiameseNet   <br> (TripetLoss)   | ![img_placeholder]      | TBD |
 
@@ -29,6 +29,8 @@
 
 [emb_mnist]: https://raw.githubusercontent.com/heytitle/siamese-net-and-friends/master/output/embedding-classification-MNIST-testing-set-embedding.png
 [emb_fmnist]: https://raw.githubusercontent.com/heytitle/siamese-net-and-friends/master/output/embedding-classification-FashionMNIST-testing-set-embedding.png
+[sc_mnist]: https://raw.githubusercontent.com/heytitle/siamese-net-and-friends/master/output/siamese-constrastive-MNIST-testing-set-embedding.png
+[tp_mnist]: https://raw.githubusercontent.com/heytitle/siamese-net-and-friends/master/output/tripet-loss-net-MNIST-testing-set-embedding.png
 
 [img_placeholder]: https://via.placeholder.com/500x500
 
