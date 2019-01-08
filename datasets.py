@@ -85,9 +85,11 @@ class TripetLossDataset(Dataset):
 
 def get_dataset(loss, name, batch_size=32):
     data_path = '%s/%s' % (DATA_PATH, name)
-    trainset = torchvision.datasets.MNIST(root=data_path, train=True, download=True, transform=transforms.ToTensor())
 
-    testset = torchvision.datasets.MNIST(root=data_path, train=False, download=True, transform=transforms.ToTensor())
+    tds = getattr(torchvision.datasets, name)
+
+    trainset = tds(root=data_path, train=True, download=True, transform=transforms.ToTensor())
+    testset = tds(root=data_path, train=False, download=True, transform=transforms.ToTensor())
 
     trainloader = torch.utils.data.DataLoader(trainset, batch_size=batch_size, shuffle=True, num_workers=1)
     testloader = torch.utils.data.DataLoader(testset, batch_size=batch_size, shuffle=False, num_workers=1)
@@ -113,4 +115,4 @@ def get_dataset(loss, name, batch_size=32):
     elif loss is F.nll_loss:
         return trainloader, testloader, trainloader, testloader
 
-    raise SystemError('no %s dataset available')
+    raise SystemError('no %s dataset available for %s' % (name, loss))
