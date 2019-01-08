@@ -18,7 +18,7 @@
 |:-------------:|:-------------:| :-----:|
 | EmbeddingNet <br> (CrossEntropyLoss) | ![emb_mnist] | ![emb_fmnist] |
 | SiameseNet   <br> (ContrastiveLoss)  | ![sc_mnist]     | ![sc_fmnist] |
-| SiameseNet   <br> (BinaryCrossEntropyLoss)   | ![img_placeholder]      | TBD |
+| SiameseNet   <br> (BinaryCrossEntropyLoss)   | ![scb_mnist]      | ![scb_fmnist] |
 | SiameseNet   <br> (TripetLoss)   | ![tp_mnist]      | ![tp_fmnist] |
 
 
@@ -31,6 +31,8 @@
 [emb_fmnist]: https://raw.githubusercontent.com/heytitle/siamese-net-and-friends/master/output/embedding-classification-FashionMNIST-testing-set-embedding.png
 [sc_mnist]: https://raw.githubusercontent.com/heytitle/siamese-net-and-friends/master/output/siamese-constrastive-MNIST-testing-set-embedding.png
 [sc_fmnist]: https://raw.githubusercontent.com/heytitle/siamese-net-and-friends/master/output/siamese-constrastive-FashionMNIST-testing-set-embedding.png
+[scb_mnist]: https://raw.githubusercontent.com/heytitle/siamese-net-and-friends/master/output/siamese-binary-cross-entropy-MNIST-testing-set-embedding.png
+[scb_fmnist]: https://raw.githubusercontent.com/heytitle/siamese-net-and-friends/master/output/siamese-binary-cross-entropy-FashionMNIST-testing-set-embedding.png
 [tp_mnist]: https://raw.githubusercontent.com/heytitle/siamese-net-and-friends/master/output/tripet-loss-net-MNIST-testing-set-embedding.png
 [tp_fmnist]: https://raw.githubusercontent.com/heytitle/siamese-net-and-friends/master/output/tripet-loss-net-FashionMNIST-testing-set-embedding.png
 
