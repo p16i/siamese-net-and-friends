@@ -23,10 +23,10 @@ They are highlighted with the same color if they come from the same class.
 
 | Loss | Formula| Intuition |
 |:-----:|:---:|:--------|
-| Cross Entropy Loss (CE)     |         | xx |
-| Binary Cross Entropy Loss (BCE)      |         | Using BCE, the latent representation is learned in such as a way that enables the Siamese network to classify whether two given samples are similar. |
-| [Contrastive Loss (CL)][contrastive-loss]      |         |  CL allows us to learn representation that bring similar samples together in a latent space. |
-| [Tripet Loss][tripet-loss]      |         | xx |
+| Cross Entropy Loss (CE)     |  ![][ce_formula]       | CE is used to train EmbeddingNet. It learns a latent space that provides good information for classifying samples.  |
+| Binary Cross Entropy Loss (BCE)      | ![][bce_formula]         | Using BCE, the latent representation is learned in such as a way that enables the Siamese network to classify whether two given samples are similar. |
+| [Contrastive Loss (CL)][contrastive-loss]      | ![][cl_formula]        |  CL allows us to learn representation that bring similar samples together in a latent space. |
+| [Tripet Loss (TL)][tripet-loss]      |   ![][tl_formula]      | TL is similar to CL but it also has a constraint that the distance between a sample and its positive pair should be smaller than the distance between the sample and its negative pair.
 
 ## Command
 
@@ -59,6 +59,14 @@ They are highlighted with the same color if they come from the same class.
 [scb_fmnist]: https://raw.githubusercontent.com/heytitle/siamese-net-and-friends/master/output/siamese-binary-cross-entropy-FashionMNIST-testing-set-embedding.png
 [tp_mnist]: https://raw.githubusercontent.com/heytitle/siamese-net-and-friends/master/output/tripet-loss-net-MNIST-testing-set-embedding.png
 [tp_fmnist]: https://raw.githubusercontent.com/heytitle/siamese-net-and-friends/master/output/tripet-loss-net-FashionMNIST-testing-set-embedding.png
+
+[ce_formula]: https://quicklatex.com/cache3/e1/ql_e6a731377c2350e21b6e693388d16ce1_l3.png
+[bce_formula]: https://quicklatex.com/cache3/46/ql_e2a3b0ee554b1325047bae1e2bfb8846_l3.png
+[cl_formula]: https://quicklatex.com/cache3/5d/ql_926e5928c3ea223befe79483f92e435d_l3.png
+[tl_formula]: https://quicklatex.com/cache3/d9/ql_2cb9c3e873b3ff264ba7b578487a84d9_l3.png
+
+
+
 
 
 [siamese-paper]: https://www.semanticscholar.org/paper/Siamese-Neural-Networks-for-One-Shot-Image-Koch/e66955e4a24b611c54f9e7f6b178e7cbaddd0fbb
