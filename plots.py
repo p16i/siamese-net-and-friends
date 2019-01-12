@@ -4,7 +4,7 @@ import numpy as np
 
 def plot_embedding(emd, labels, title='Embedding', filename=None, no_label_and_legend=False):
     uniq_labels = sorted(np.unique(labels))
-    plt.figure(figsize=(5, 5))
+    fig = plt.figure(figsize=(5, 5))
 
     for label in uniq_labels:
         indices = np.argwhere(labels==label).reshape(-1)
@@ -24,9 +24,11 @@ def plot_embedding(emd, labels, title='Embedding', filename=None, no_label_and_l
     if filename:
         plt.savefig(filename)
 
+    plt.close(fig)
+
 
 def plot_stats(stats, prefix="", metrics=['loss'], filename=None):
-    plt.figure(figsize=(10*len(metrics), 3))
+    fig = plt.figure(figsize=(10*len(metrics), 3))
     epoch_labels = list(range(1, len(stats['train_loss'])+1))
     for i, metric in enumerate(metrics):
         plt.subplot(1, 2, i+1)
@@ -40,3 +42,5 @@ def plot_stats(stats, prefix="", metrics=['loss'], filename=None):
 
     if filename:
         plt.savefig(filename)
+
+    plt.close(fig)
