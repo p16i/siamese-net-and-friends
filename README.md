@@ -2,7 +2,7 @@
 
 
 <div align="center">
-<img src="https://i.imgur.com/et8mlm5.gif"/> <br>
+<img src="https://github.com/heytitle/siamese-net-and-friends/blob/master/output/siamese-binary-cross-entropy-MNIST-latent-space-development.gif?raw=true"/> <br>
 <b>Fig. 1 Latent space development throughout training epochs.
 These dots are MNIST test samples. <br>
 They are highlighted with the same color if they come from the same class.
