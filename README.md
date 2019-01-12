@@ -6,6 +6,7 @@
 <b>Fig. 1 Latent space development throughout training epochs.
 These dots are MNIST test samples. <br>
 They are highlighted with the same color if they come from the same class.
+</b>
 </div>
 
 ## Introduction
