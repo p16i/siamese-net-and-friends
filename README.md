@@ -52,6 +52,24 @@ They are highlighted with the same color if they come from the same class.
     TL is similar to CL but it also has a constraint that the distance between a sample and its positive pair should be smaller than the distance between the sample and its negative pair.
 
 ## Command
+```
+Usage: train.py [-h] [--lr 0.0001] [--epochs 10] [--batch-size 32]
+                [--output ./tmp] [--log-interval 50] [--animation 50]
+                network dataset
+
+Positional arguments:
+  network [embedding-classification|siamese-constrastive|siamese-binary-cross-entropy|tripet-loss-net]
+  dataset [MNIST|FashionMNIST]
+
+Optional arguments:
+  -h, --help         show this help message and exit
+  --lr 0.0001        learning rate
+  --epochs 10        no. epochs
+  --batch-size 32    batch size
+  --output ./tmp     output directory
+  --log-interval 50  logging interval
+  --animation False  produce latent space every epoch for animation
+```
 
 ## Results
 
