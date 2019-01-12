@@ -1,23 +1,28 @@
-# Siamese networks and Friends (in progress)
+# Siamese networks and Friends
 
 
 <div align="center">
 <img src="https://github.com/heytitle/siamese-net-and-friends/blob/master/output/siamese-binary-cross-entropy-MNIST-latent-space-development.gif?raw=true"/> <br>
-<b>Fig. 1: Latent space development throughout training epochs.
+<b>Fig. 1: Latent space learned from a Siamese network.
 These dots are MNIST test samples. <br>
 They are highlighted with the same color if they come from the same class.
 </b>
 </div>
 
 ## Introduction
+Given a set of data, such as images, we can find a latent space that these samples lay on. Although this latent space typically much lower dimensions than the original space, it preserves semantic information between neighbours. Mapping data from the original space to the latent space allows us to reduce the dimensions we need to represent data significantly; hence reduce computation resources.
+
+In this project, we aim to use several neural networks to learn such latent spaces. Using different architectures and loss functions, we can see how data is represented in those latent spaces Some of these spaces map similar data together, i.e. samples in the same class. With appropriated learned latent space, one can use these latent features for other downstream tasks, such as classification or reverse image search.
 
 ## Architectures
 <div align="center">
 <img src="https://raw.githubusercontent.com/heytitle/siamese-net-and-friends/master/diagrams/architectures.png?raw=1"/>
 <br>
-<b> Fig. 2: xxx
+<b> Fig. 2: Architectures experimented in this project.
 </b>
 </div>
+
+EmbeddingNet is based on @adambielski's [siamese-tripet][siamese-tripet], while SiameseNet is from [Koch (2015)][siamese-paper].
 
 ## Loss Functions
 - Cross Entropy Loss (CE)
@@ -83,13 +88,15 @@ Optional arguments:
 
 
 ## Acknowledgements
-- @adambielski's [siamese-tripet](https://github.com/adambielski/siamese-triplet): experiments here are mainly based on his experiments.
+- @adambielski's [siamese-tripet][siamese-tripet]: experiments here are mainly based on his experiments.
 
 ## References
 1. Koch, G.R. (2015). [Siamese Neural Networks for One-Shot Image Recognition.][siamese-paper]
 2. Hadsell, R., Chopra, S., & LeCun, Y. (2006). [Dimensionality reduction by learning an invariant mapping.][contrastive-loss] In Proceedings of the IEEE conference on CVPR (pp. 1735-1742).
 3. Schroff, F., Kalenichenko, D., & Philbin, J. (2015). [Facenet: A unified embedding for face recognition and clustering.][tripet-loss] In Proceedings of the IEEE conference on CVPR (pp. 815-823).
 
+
+[siamese-tripet]: https://github.com/adambielski/siamese-triplet
 
 [architecures]: https://raw.githubusercontent.com/heytitle/siamese-net-and-friends/master/diagrams/architectures.png?raw=1
 [emb_mnist]: https://raw.githubusercontent.com/heytitle/siamese-net-and-friends/master/output/embedding-classification-MNIST-testing-set-embedding.png
