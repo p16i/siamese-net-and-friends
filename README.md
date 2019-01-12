@@ -19,6 +19,15 @@ They are highlighted with the same color if they come from the same class.
 </b>
 </div>
 
+## Loss Functions
+
+| Loss | Formula| Intuition |
+|:-----:|:---:|:--------|
+| Cross Entropy Loss (CE)     |         | xx |
+| Binary Cross Entropy Loss (BCE)      |         | Using BCE, the latent representation is learned in such as a way that enables the Siamese network to classify whether two given samples are similar. |
+| [Contrastive Loss (CL)][contrastive-loss]      |         |  CL allows us to learn representation that bring similar samples together in a latent space. |
+| [Tripet Loss][tripet-loss]      |         | xx |
+
 ## Command
 
 ## Results
