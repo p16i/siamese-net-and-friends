@@ -85,6 +85,7 @@ class TripetLossDataset(Dataset):
 
 def get_dataset(loss, name, batch_size=32):
     data_path = '%s/%s' % (DATA_PATH, name)
+    print(data_path)
 
     tds = getattr(torchvision.datasets, name)
 
