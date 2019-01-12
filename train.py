@@ -64,6 +64,13 @@ with tqdm(total=total_loop) as pbar:
         sample_seen = 0.0
         running_loss = 0.0
         running_acc = 0.0
+        if args.animation:
+            net.eval()
+            plots.plot_embedding(*utils.get_embedding(net, original_test_loader),
+                                 filename=add_prefix('gif/epoch-%02d.png' % (epoch)),
+                                 title='Latent Space at Epoch %02d' % (epoch),
+                                 no_label_and_legend=args.animation
+                                 )
 
         # train
         net.train()
@@ -111,13 +118,6 @@ with tqdm(total=total_loop) as pbar:
                 total_test_samples += samples_in_batch
 
         status['val_loss'] = test_loss / total_test_samples
-
-        if args.animation:
-            plots.plot_embedding(*utils.get_embedding(net, original_test_loader),
-                                 filename=add_prefix('gif/epoch-%d.png' % (epoch+1)),
-                                 title='Latent Space at Epoch %02d' % (epoch+1),
-                                 no_label_and_legend=args.animation
-                                 )
 
 
         pbar.set_postfix(status)
