@@ -3,7 +3,7 @@
 
 <div align="center">
 <img src="https://github.com/heytitle/siamese-net-and-friends/blob/master/output/siamese-binary-cross-entropy-MNIST-latent-space-development.gif?raw=true"/> <br>
-<b>Fig. 1 Latent space development throughout training epochs.
+<b>Fig. 1: Latent space development throughout training epochs.
 These dots are MNIST test samples. <br>
 They are highlighted with the same color if they come from the same class.
 </b>
@@ -12,6 +12,12 @@ They are highlighted with the same color if they come from the same class.
 ## Introduction
 
 ## Architectures
+<div align="center">
+<img src="https://raw.githubusercontent.com/heytitle/siamese-net-and-friends/master/diagrams/architectures.png?raw=1"/>
+<br>
+<b> Fig. 2: xxx
+</b>
+</div>
 
 ## Command
 
@@ -35,6 +41,7 @@ They are highlighted with the same color if they come from the same class.
 3. Schroff, F., Kalenichenko, D., & Philbin, J. (2015). [Facenet: A unified embedding for face recognition and clustering.][tripet-loss] In Proceedings of the IEEE conference on CVPR (pp. 815-823).
 
 
+[architecures]: https://raw.githubusercontent.com/heytitle/siamese-net-and-friends/master/diagrams/architectures.png?raw=1
 [emb_mnist]: https://raw.githubusercontent.com/heytitle/siamese-net-and-friends/master/output/embedding-classification-MNIST-testing-set-embedding.png
 [emb_fmnist]: https://raw.githubusercontent.com/heytitle/siamese-net-and-friends/master/output/embedding-classification-FashionMNIST-testing-set-embedding.png
 [sc_mnist]: https://raw.githubusercontent.com/heytitle/siamese-net-and-friends/master/output/siamese-constrastive-MNIST-testing-set-embedding.png
