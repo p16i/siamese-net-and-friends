@@ -2,7 +2,10 @@
 
 
 <div align="center">
-    <img src="https://via.placeholder.com/500x500"/>
+<img src="https://i.imgur.com/et8mlm5.gif"/> <br>
+<b>Fig. 1 Latent space development throughout training epochs.
+These dots are MNIST test samples. <br>
+They are highlighted with the same color if they come from the same class.
 </div>
 
 ## Introduction
@@ -10,7 +13,6 @@
 ## Architectures
 
 ## Command
-
 
 ## Results
 
@@ -20,11 +22,16 @@
 | SiameseNet   <br> (ContrastiveLoss)  | ![sc_mnist]     | ![sc_fmnist] |
 | SiameseNet   <br> (BinaryCrossEntropyLoss)   | ![scb_mnist]      | ![scb_fmnist] |
 | SiameseNet   <br> (TripetLoss)   | ![tp_mnist]      | ![tp_fmnist] |
+| VAE (TBD) | | |
 
 
 ## Acknowledgements
 - @adambielski's [siamese-tripet](https://github.com/adambielski/siamese-triplet): experiments here are mainly based on his experiments.
 
+## References
+1. Koch, G.R. (2015). [Siamese Neural Networks for One-Shot Image Recognition.][siamnet]
+2. Hadsell, R., Chopra, S., & LeCun, Y. (2006). [Dimensionality reduction by learning an invariant mapping.][contrastive-loss] In Proceedings of the IEEE conference on CVPR (pp. 1735-1742).
+3. Schroff, F., Kalenichenko, D., & Philbin, J. (2015). [Facenet: A unified embedding for face recognition and clustering.][tripet-loss] In Proceedings of the IEEE conference on CVPR (pp. 815-823).
 
 
 [emb_mnist]: https://raw.githubusercontent.com/heytitle/siamese-net-and-friends/master/output/embedding-classification-MNIST-testing-set-embedding.png
@@ -36,7 +43,9 @@
 [tp_mnist]: https://raw.githubusercontent.com/heytitle/siamese-net-and-friends/master/output/tripet-loss-net-MNIST-testing-set-embedding.png
 [tp_fmnist]: https://raw.githubusercontent.com/heytitle/siamese-net-and-friends/master/output/tripet-loss-net-FashionMNIST-testing-set-embedding.png
 
-[img_placeholder]: https://via.placeholder.com/500x500
 
-[siamese-paper]: http://something
-[constrastive-loss]: http://something
+[siamese-paper]: https://www.semanticscholar.org/paper/Siamese-Neural-Networks-for-One-Shot-Image-Koch/e66955e4a24b611c54f9e7f6b178e7cbaddd0fbb
+[contrastive-loss]: http://yann.lecun.com/exdb/publis/pdf/hadsell-chopra-lecun-06.pdf
+[tripet-loss]: https://arxiv.org/pdf/1503.03832.pdf
+
+[img_placeholder]: https://via.placeholder.com/500x500

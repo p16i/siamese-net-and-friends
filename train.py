@@ -10,6 +10,10 @@ import datasets
 import networks
 import plots
 import utils
+import os
+import shutil
+import imageio
+import glob
 
 # Parse command line arguments
 parser = argparse.ArgumentParser(description='Train network!')
@@ -20,10 +24,14 @@ parser.add_argument('--epochs', metavar='10', type=int, help='no. epochs', defau
 parser.add_argument('--batch-size', metavar='32', type=int, help='batch size', default=32)
 parser.add_argument('--output', metavar='./tmp', type=str, help='output directory', default='./tmp')
 parser.add_argument('--log-interval', metavar='50', type=int, help='logging interval', default=50)
+parser.add_argument('--animation', metavar='50', type=bool, help='logging interval', default=False)
 
 args = parser.parse_args()
 
 add_prefix = lambda x: '%s/%s-%s-%s' % (args.output, args.net, args.dataset, x)
+
+if args.animation:
+    os.makedirs(add_prefix('gif'))
 
 # Prepare dataset
 stats_collector = dict(
@@ -104,6 +112,14 @@ with tqdm(total=total_loop) as pbar:
 
         status['val_loss'] = test_loss / total_test_samples
 
+        if args.animation:
+            plots.plot_embedding(*utils.get_embedding(net, original_test_loader),
+                                 filename=add_prefix('gif/epoch-%d.png' % (epoch+1)),
+                                 title='Latent Space at Epoch %02d' % (epoch+1),
+                                 no_label_and_legend=args.animation
+                                 )
+
+
         pbar.set_postfix(status)
 
         # collect stats
@@ -121,3 +137,9 @@ plots.plot_embedding(*utils.get_embedding(net, original_test_loader),
                      filename=add_prefix('testing-set-embedding.png'),
                      title='Test Set Embedding')
 
+
+if args.animation:
+    imageio.mimsave(add_prefix('latent-space-development.gif'),
+                    map(lambda x: imageio.imread(x), sorted(glob.glob(add_prefix('gif/*.png')))),
+                    duration=0.1)
+    shutil.rmtree(add_prefix('gif'))

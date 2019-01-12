@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
-def plot_embedding(emd, labels, title='Embedding', filename=None):
+def plot_embedding(emd, labels, title='Embedding', filename=None, no_label_and_legend=False):
     uniq_labels = sorted(np.unique(labels))
     plt.figure(figsize=(5, 5))
 
@@ -11,10 +11,15 @@ def plot_embedding(emd, labels, title='Embedding', filename=None):
         class_embedding = emd[indices, :]
 
         plt.scatter(class_embedding[:, 0], class_embedding[:, 1], marker='o', label='Class %d' % label, alpha=0.6)
+
+    plt.title(title)
     plt.xlabel('z1')
     plt.ylabel('z2')
-    plt.title(title)
-    plt.legend()
+
+    if not no_label_and_legend:
+        plt.legend()
+    else:
+        plt.xticks([]), plt.yticks([])
 
     if filename:
         plt.savefig(filename)
